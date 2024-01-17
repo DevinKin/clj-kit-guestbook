@@ -1,5 +1,5 @@
 {:paths   ["src/clj"
-           "resources"]
+           "resources" "src/cljs"]
 
  :deps    {org.clojure/clojure {:mvn/version "1.11.1"}
 
@@ -29,7 +29,10 @@
  org.xerial/sqlite-jdbc {:mvn/version "3.36.0.3"}
  io.github.kit-clj/kit-nrepl {:mvn/version "1.0.1"}}
  :aliases {:build {:deps {io.github.clojure/tools.build {:git/sha "24f2894"
-                                                         :git/tag "v0.9.5" :git/url "https://github.com/clojure/tools.build.git"}}
+                                :git/tag "v0.9.5"
+                                :git/url "https://github.com/clojure/tools.build.git"}
+ babashka/fs {:mvn/version "0.1.11"}
+ babashka/process {:mvn/version "0.3.11"}}
                    :ns-default build}
 
 
@@ -44,7 +47,7 @@
                                 io.github.kit-clj/kit-generator {:mvn/version "0.2.1"}
                                 org.clojure/tools.namespace     {:mvn/version "1.4.4"}
                                 }
-                  :extra-paths ["env/dev/clj" "env/dev/resources" "test/clj"]}
+                  :extra-paths ["env/dev/clj" "env/dev/resources" "test/clj" "target/classes/cljsbuild"]}
            :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}}
                    :main-opts  ["-m" "nrepl.cmdline" "-i"]}
            :cider {:extra-deps {nrepl/nrepl       {:mvn/version "1.0.0"}
